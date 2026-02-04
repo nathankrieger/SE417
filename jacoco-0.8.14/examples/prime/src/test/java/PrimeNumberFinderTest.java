@@ -77,6 +77,13 @@ public class PrimeNumberFinderTest{
         assertFalse(PrimeNumberFinder.isPrime(25));
     }
 
+    // This test is to hit the 4th if condition
+    // line 79 in jacoco report.
+    @Test
+    public void testIsPrime11() {
+        assertTrue(PrimeNumberFinder.isPrime(5));
+    }
+
     // Tests to check the for-loop logic in isPrime
     // line 83-87 in jacoco report.
     @Test
@@ -102,7 +109,7 @@ public class PrimeNumberFinderTest{
     public void testIsPrime_LoopCondition2() {
         assertFalse(PrimeNumberFinder.isPrime(91)); 
     }
-    
+
     // line 89 in jacoco report.
     // Hits the "return true" AFTER the loop finishes
     @Test
@@ -117,6 +124,31 @@ public class PrimeNumberFinderTest{
     public void sumofP1() {
 	List<Integer> input = Arrays.asList(5,7);
 	assertEquals(12,PrimeNumberFinder.computeSumOfPrimes(input));
+    }
+
+    // tests for sumofP with an empty list to evaluate line 52 if statement to false and hit line 58
+    @Test
+    public void sumofP2() {
+	List<Integer> input = Arrays.asList(1);
+	assertEquals(1,PrimeNumberFinder.computeSumOfPrimes(input));
+    }
+
+
+
+    // Faults and exceptions
+    @Test
+    public void testIsPrime_fault1() {
+        assertFalse(PrimeNumberFinder.isPrime(1));
+    }
+
+    @Test
+    public void testFindPrimes_fault2() {
+        assertArrayEquals(new Integer[]{2,3,5,7}, PrimeNumberFinder.findPrimes(1,7).toArray());
+    }
+
+    @Test
+    public void testComputeSum_Exception() {
+        assertEquals(0, PrimeNumberFinder.computeSumOfPrimes(new ArrayList<Integer>()));
     }
 
 }
