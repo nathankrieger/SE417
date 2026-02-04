@@ -34,7 +34,7 @@ public class PrimeNumberFinder {
     public static List<Integer> findPrimes(int lowerBound, int upperBound) {
         List<Integer> primeNumbers = new ArrayList<>();
 
-        for (int number = lowerBound; number < upperBound; number++) {
+        for (int number = lowerBound; number <= upperBound; number++) { // FIX: changed < to <= to include upperBound
             if (isPrime(number)) {
                 primeNumbers.add(number);
             }
@@ -48,6 +48,10 @@ public class PrimeNumberFinder {
    
     public static int computeSumOfPrimes(List<Integer> primes) {
         int sum = 0;
+
+    if (primes.isEmpty()) { // Fix: check if the list is empty before accessing elements
+        return 0;
+    }
 
 	if(primes.size()>1){                
            for (int prime : primes) {
@@ -64,7 +68,7 @@ public class PrimeNumberFinder {
 
 
     public static boolean isPrime(int num) {
-	if (num < 1) {
+	if (num <= 1) { // FIX: add = sign
 	    return false;
 	}
 
@@ -72,7 +76,7 @@ public class PrimeNumberFinder {
 	    return true;
 	}
 
-	if (num % 2 == 0 || num % 3 == 0 || num % 6 == 0) {
+	if (num % 2 == 0 || num % 3 == 0) { // removed num % 6 == 0 check
 	    return false;
 	}
 
