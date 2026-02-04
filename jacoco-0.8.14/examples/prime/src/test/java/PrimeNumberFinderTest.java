@@ -34,7 +34,82 @@ public class PrimeNumberFinderTest{
     public void testIsPrime2() {
         assertFalse(PrimeNumberFinder.isPrime(10));
     }
+
+    //test for a negative number to enter the first if condition
+    // line 67, 68 in jacoco report.
+    @Test
+    public void testIsPrime3() {
+        assertFalse(PrimeNumberFinder.isPrime(-1));
+    }
+
+    // The next 3 tests are to check the 2nd if condition in isPrime expilicitly.
+    // Test 4 and 5 also test the logic for the first 2 conditions of the 3rd if statement.
+    // line 71, 75, 76 in jacoco report.
+    @Test
+    public void testIsPrime4() {
+        assertTrue(PrimeNumberFinder.isPrime(2));
+    }
+
+    // line 71, 75, 76 in jacoco report.
+    @Test
+    public void testIsPrime5() {
+        assertTrue(PrimeNumberFinder.isPrime(3));
+    }
+
+    // line 71, 72 in jacoco report.
+    @Test
+    public void testIsPrime6() {
+        assertTrue(PrimeNumberFinder.isPrime(7));
+    }
+
+    // This test is to test the 3rd condition in the 3rd if statement. 
+    // However, this will never reach because if a number is divisible by 6, it is also divisible by 2 and 3.
+    // line 75, 76 in jacoco report.
+    @Test
+    public void testIsPrime7() {
+        assertFalse(PrimeNumberFinder.isPrime(6));
+    }
+
+    // This test is to hit the 4th if condition
+    // line 79, 80 in jacoco report.
+    @Test
+    public void testIsPrime10() {
+        assertFalse(PrimeNumberFinder.isPrime(25));
+    }
+
+    // Tests to check the for-loop logic in isPrime
+    // line 83-87 in jacoco report.
+    @Test
+    public void testIsPrime8() {
+        assertFalse(PrimeNumberFinder.isPrime(26));
+    }
+    // line 83-87 in jacoco report.
+    @Test
+    public void testIsPrime9() {
+        assertFalse(PrimeNumberFinder.isPrime(49));
+    }
+
+    // line 83-87 in jacoco report.
+    // Hits the "num % i == 0" branch
+    @Test
+    public void testIsPrime_LoopCondition1() {
+        assertFalse(PrimeNumberFinder.isPrime(121)); 
+    }
+
+    // line 83-87 in jacoco report.
+    // Hits the "num % (i + 2) == 0" branch
+    @Test
+    public void testIsPrime_LoopCondition2() {
+        assertFalse(PrimeNumberFinder.isPrime(91)); 
+    }
     
+    // line 89 in jacoco report.
+    // Hits the "return true" AFTER the loop finishes
+    @Test
+    public void testIsPrime_PassesLoop() {
+        assertTrue(PrimeNumberFinder.isPrime(17));
+    }
+
     //tests for the sumofP method - note the list provided is the list of primes
     // to be summed - not the lower and upper bound
 
