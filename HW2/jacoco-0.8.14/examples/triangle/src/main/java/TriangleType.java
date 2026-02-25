@@ -4,7 +4,7 @@
 //Chapter 6;
 // See TriangleTypeTest for Junit tests
 
-package triangle;
+
 
 
 public class TriangleType
@@ -27,14 +27,13 @@ public class TriangleType
       if ((s1 == s2) && (s2 == s3))
          return Triangle.EQUILATERAL;
 
-      // Identify isosceles triangles - correct
-      //comment out when put in fault below
-      //if ((s1 == s2) || (s2 == s3) || (s1 == s3))
+      // Identify isosceles triangles
+      // original program line is below (correct version) 
+      // if ((s1 == s2) || (s2 == s3) || (s1 == s3))
 
-      //fault to uncomment and introduce
-	   if ((s1 == s3) || (s1<=s3) || (s2 == s3))
-
-	  return Triangle.ISOSCELES;
+      //fault introduced below by M.Cohen
+       if ((s1 == s2) || (s2 == s3) || (s3 == s2))
+         return Triangle.ISOSCELES;
 
       return (Triangle.SCALENE);
    } 
