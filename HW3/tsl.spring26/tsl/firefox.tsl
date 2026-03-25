@@ -1,0 +1,34 @@
+#tsl for sort
+Parameters:
+	search_engine:
+	  Google.
+	  Amazon.
+	  Bing.
+	  DuckDuckGo.
+	  eBay.
+	  Perplexity.
+	  Wikipedia.	
+	tab_opening_links_in_tabs:
+		on.
+		off.
+	tab_opening_switch_to_link:
+		on.
+		off.
+	tab_opening_links_next_to_active_tab:
+		on.
+		off.
+	tab_interaction_ctrl_tab_recently_used:
+		on.
+		off.
+	tab_interaction_image_preview:
+		on.
+		off.
+	browser_layout:
+	  horizontal_tabs.
+	  vertical_tabs.
+	firefox_suggest_history:
+		on.
+		off.
+	firefox_suggest_bookmarks:
+		on.
+		off.
